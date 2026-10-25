@@ -1,0 +1,24 @@
+文档许可：CC BY 4.0
+Documentation License: Creative Commons Attribution 4.0 International
+
+本仓库的文档部分（包括所有 Markdown 正文、复盘文章、截图与说明文字）
+采用「知识共享 署名 4.0 国际许可协议」（CC BY 4.0）授权。
+
+你可以自由地共享（以任何媒介或格式复制、发行本作品）与演绎
+（修改、转换或以本作品为基础进行创作），包括商业用途，
+但必须遵守「署名」条件：
+
+  署名 —— 你必须给出适当的署名，提供指向本许可协议的链接，
+  并说明是否作出了修改。你可以以任何合理方式署名，
+  但不得暗示作者为你或你的使用背书。
+
+许可协议全文（规范文本）：
+https://creativecommons.org/licenses/by/4.0/
+
+法律文本（legalcode）：
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+说明：本文件只作授权声明，不复制协议正文。
+如需完整条款，请以上面的规范链接为准。
+
+代码部分不适用本文件，另见 LICENSE（MIT）。
