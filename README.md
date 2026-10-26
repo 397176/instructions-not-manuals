@@ -164,8 +164,22 @@ node scripts/sync-essentials.example.mjs \
 | **写卡与验卡的四条**            | [`battle-archive/03-写卡与验卡的四条.md`](battle-archive/03-写卡与验卡的四条.md) —— 祈使句换条件句、可指认、干净对话验卡、收口式补卡                |
 | **一条纪律：别打掉别人的卡**        | [`battle-archive/04-别打掉别人的卡.md`](battle-archive/04-别打掉别人的卡.md)                                              |
 | **能跑的体检器**              | [`battle-archive/tools/指令文件体检器.html`](battle-archive/tools/指令文件体检器.html) —— 单文件、零依赖、双击就开                    |
-| **发布前冒烟**               | [`battle-archive/tools/指令文件体检器-冒烟测试.js`](battle-archive/tools/指令文件体检器-冒烟测试.js)                              |
+| **发布前冒烟**               | [`battle-archive/tools/指令文件体检器-冒烟测试.js`](battle-archive/tools/指令文件体检器-冒烟测试.js) —— 跑法见下方「三个工具怎么跑」                    |
 | **防漂移同步脚本（示例）**         | [`scripts/sync-essentials.example.mjs`](scripts/sync-essentials.example.mjs) —— 文件名带 `example`，需按自己的路径改过才能跑 |
+
+### 三个工具怎么跑
+
+都有用法，但**跑法各不相同**，照着下面这行抄，别猜：
+
+| 工具 | 命令 | 注意 |
+| --- | --- | --- |
+| 体检器（网页版） | **双击** `battle-archive/tools/指令文件体检器.html` | 单文件、零依赖，不用装任何东西、不用起服务 |
+| 发布前冒烟 | `cd battle-archive/tools && node 指令文件体检器-冒烟测试.js` | ⚠️ **必须先 `cd` 进 `tools/` 目录**——脚本默认读同目录的 HTML，在仓库根直接跑会报 `ENOENT`。也可以显式传路径：`node battle-archive/tools/指令文件体检器-冒烟测试.js battle-archive/tools/指令文件体检器.html` |
+| 防漂移同步脚本 | `node scripts/sync-essentials.example.mjs --source <源文件> --target <目标1> [目标2 ...]` | 需 Node 18+；**示例版**，路径要按自己的改；**必须带 `--source` 和 `--target`**，不带会直接报参数错误；加 `--check` 只查不写（退出码 `0` 一致 / `1` 有漂移或缺段 / `2` 参数或源文件有问题） |
+
+冒烟脚本的退出码：`0` 全过，`2` 有失败（按钮点不动 / 口径不同步 / 同级 md 写死了计数）。
+它防的是这一类事：改了规则表却忘了改正文里写死的数字——页脚还在说「N 项」、治理建议还说「N 条」。
+**凡是数字指向远处源的，一律从源动态取**；这个脚本逐个验注入值。
 
 **建议路径**：`README`（这一页）→ 抄文本 ① → 抄文本 ②③ → `docs/six-rules.md` → 卡住了再翻 `battle-archive/`。  
 档案是**证据**，不是必读材料 —— 它的作用是让你在看到某条规矩时知道「这是撞出来的，不是想出来的」。
